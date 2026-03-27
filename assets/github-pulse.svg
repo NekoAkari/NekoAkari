@@ -39,7 +39,7 @@
 
   <text x="162" y="95" class="title">Ella Long</text>
   <text x="162" y="122" class="subtitle">Quietly building cozy things on the web.</text>
-  <text x="162" y="146" class="small">Joined GitHub in 2019 • Local time in Vancouver: 10:06 PM</text>
+  <text x="162" y="146" class="small">Joined GitHub in 2019 • Local time in Vancouver: 10:08 PM</text>
 
   <rect x="58" y="192" width="392" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
   <text x="78" y="226" class="section">Top Languages by Commit</text>
@@ -56,16 +56,16 @@
       
         <text x="78" y="334" class="label">JavaScript</text>
         <rect x="220" y="318" width="206" height="18" rx="9" fill="#f7efe6" />
-        <rect x="220" y="318" width="94" height="18" rx="9" fill="#f6c6a8" />
-        <text x="438" y="334" class="stat-muted" text-anchor="end">12 commits</text>
+        <rect x="220" y="318" width="102" height="18" rx="9" fill="#f6c6a8" />
+        <text x="438" y="334" class="stat-muted" text-anchor="end">13 commits</text>
       
 
   <rect x="470" y="192" width="374" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
   <text x="490" y="226" class="section">Recent Rhythm</text>
   <text x="490" y="254" class="body">Recent public activity sample:</text>
-  <text x="490" y="276" class="body">39 events across 11 active days.</text>
+  <text x="490" y="276" class="body">40 events across 11 active days.</text>
   <text x="490" y="304" class="body">Most active hour in Vancouver:</text>
-  <text x="490" y="326" class="body">20:00 (9 events).</text>
+  <text x="490" y="326" class="body">-1:00 (NaN events).</text>
   <text x="490" y="356" class="section">Recently Touched Repos</text>
   
         <circle cx="525" cy="331" r="4" fill="#9fd3c7" />
