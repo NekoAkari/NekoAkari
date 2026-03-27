@@ -51,6 +51,32 @@ async function fetchPublicEvents() {
   return fetchJson(`https://api.github.com/users/${config.username}/events/public?per_page=100`);
 }
 
+async function fetchRepoCommitCount(repoName) {
+  const commits = await fetchJson(`https://api.github.com/repos/${config.username}/${repoName}/commits?per_page=100`);
+  return Array.isArray(commits) ? commits.length : 0;
+}
+
+async function fetchCommitCountsByLanguage(repos) {
+  const sourceRepos = repos.filter((repo) => !repo.fork && repo.language);
+  const entries = await Promise.all(
+    sourceRepos.map(async (repo) => ({
+      language: repo.language,
+      commits: await fetchRepoCommitCount(repo.name),
+    }))
+  );
+
+  const counts = new Map();
+  for (const entry of entries) {
+    if (entry.commits <= 0) {
+      continue;
+    }
+
+    counts.set(entry.language, (counts.get(entry.language) ?? 0) + entry.commits);
+  }
+
+  return counts;
+}
+
 function ensureDirectoryExists(filePath) {
   const directory = filePath.split("/").slice(0, -1).join("/");
   if (directory) {
@@ -119,23 +145,14 @@ function buildStatsSection(profile) {
   ].join("\n");
 }
 
-function buildPulseData(profile, repos, events) {
+function buildPulseData(profile, repos, events, commitLanguageCounts) {
   const sourceRepos = repos.filter((repo) => !repo.fork);
   const totalStars = sourceRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
-  const languageCounts = new Map();
 
-  for (const repo of sourceRepos) {
-    if (!repo.language) {
-      continue;
-    }
-
-    languageCounts.set(repo.language, (languageCounts.get(repo.language) ?? 0) + 1);
-  }
-
-  const topLanguages = [...languageCounts.entries()]
+  const topLanguages = [...commitLanguageCounts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 4)
-    .map(([language, count]) => ({ language, count }));
+    .map(([language, commits]) => ({ language, commits }));
 
   const recentRepos = sourceRepos
     .slice()
@@ -174,19 +191,19 @@ function buildPulseData(profile, repos, events) {
 }
 
 function buildLanguageBars(topLanguages) {
-  const maxCount = Math.max(...topLanguages.map((item) => item.count), 1);
+  const maxCount = Math.max(...topLanguages.map((item) => item.commits), 1);
   const colors = ["#f4a6b8", "#9fd3c7", "#f6c6a8", "#cdb4db"];
 
   return topLanguages
     .map((item, index) => {
-      const y = 246 + index * 40;
-      const width = Math.round((item.count / maxCount) * 210);
+      const y = 250 + index * 42;
+      const width = Math.round((item.commits / maxCount) * 196);
 
       return `
         <text x="78" y="${y}" class="label">${escapeXml(item.language)}</text>
-        <rect x="210" y="${y - 15}" width="220" height="18" rx="9" fill="#f7efe6" />
-        <rect x="210" y="${y - 15}" width="${width}" height="18" rx="9" fill="${colors[index % colors.length]}" />
-        <text x="442" y="${y}" class="stat-muted" text-anchor="end">${item.count} repo${item.count === 1 ? "" : "s"}</text>
+        <rect x="220" y="${y - 16}" width="206" height="18" rx="9" fill="#f7efe6" />
+        <rect x="220" y="${y - 16}" width="${width}" height="18" rx="9" fill="${colors[index % colors.length]}" />
+        <text x="438" y="${y}" class="stat-muted" text-anchor="end">${item.commits} commit${item.commits === 1 ? "" : "s"}</text>
       `;
     })
     .join("");
@@ -195,7 +212,7 @@ function buildLanguageBars(topLanguages) {
 function buildRecentRepoLines(recentRepos) {
   return recentRepos
     .map((repo, index) => {
-      const y = 326 + index * 28;
+      const y = 336 + index * 28;
       return `
         <circle cx="525" cy="${y - 5}" r="4" fill="#9fd3c7" />
         <text x="540" y="${y}" class="label">${escapeXml(repo.name)}</text>
@@ -207,7 +224,7 @@ function buildRecentRepoLines(recentRepos) {
 
 function generatePulseSvg(pulse) {
   const languageBars = buildLanguageBars(
-    pulse.topLanguages.length > 0 ? pulse.topLanguages : [{ language: "No language data yet", count: 1 }]
+    pulse.topLanguages.length > 0 ? pulse.topLanguages : [{ language: "No commit data yet", commits: 1 }]
   );
   const recentRepos = buildRecentRepoLines(
     pulse.recentRepos.length > 0
@@ -216,7 +233,7 @@ function generatePulseSvg(pulse) {
   );
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="460" viewBox="0 0 900 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="900" height="500" viewBox="0 0 900 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Custom GitHub Pulse card for ${escapeXml(config.username)}</title>
   <desc id="desc">A custom summary card showing profile stats, languages, recent repositories, and local activity time.</desc>
   <defs>
@@ -228,7 +245,7 @@ function generatePulseSvg(pulse) {
       <stop stop-color="#FFE2EA" />
       <stop offset="1" stop-color="#DFF7F1" />
     </linearGradient>
-    <filter id="shadow" x="0" y="0" width="900" height="460" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="shadow" x="0" y="0" width="900" height="500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#E9D8E0" flood-opacity="0.45" />
     </filter>
   </defs>
@@ -240,14 +257,14 @@ function generatePulseSvg(pulse) {
     .metric { font: 700 28px "Avenir Next", "Segoe UI", sans-serif; fill: #2f3142; }
     .metric-label { font: 500 13px "Avenir Next", "Segoe UI", sans-serif; fill: #6e7692; }
     .label { font: 600 16px "Avenir Next", "Segoe UI", sans-serif; fill: #364057; }
-    .body { font: 500 15px "Avenir Next", "Segoe UI", sans-serif; fill: #4f5874; }
+    .body { font: 500 14px "Avenir Next", "Segoe UI", sans-serif; fill: #4f5874; }
     .stat-muted { font: 500 13px "Avenir Next", "Segoe UI", sans-serif; fill: #7e88a6; }
     .small { font: 500 12px "Avenir Next", "Segoe UI", sans-serif; fill: #8b94af; }
   </style>
 
   <g filter="url(#shadow)">
-    <rect x="30" y="24" width="840" height="400" rx="32" fill="url(#bg)" />
-    <rect x="30.75" y="24.75" width="838.5" height="398.5" rx="31.25" stroke="#F2DDE4" stroke-opacity="0.9" stroke-width="1.5" />
+    <rect x="30" y="24" width="840" height="440" rx="32" fill="url(#bg)" />
+    <rect x="30.75" y="24.75" width="838.5" height="438.5" rx="31.25" stroke="#F2DDE4" stroke-opacity="0.9" stroke-width="1.5" />
   </g>
 
   <rect x="56" y="52" width="788" height="112" rx="24" fill="url(#header)" />
@@ -258,15 +275,17 @@ function generatePulseSvg(pulse) {
   <text x="162" y="122" class="subtitle">${escapeXml(pulse.bio)}</text>
   <text x="162" y="146" class="small">Joined GitHub in ${pulse.joinedYear} • Local time in Vancouver: ${pulse.currentLocalTime}</text>
 
-  <rect x="58" y="192" width="392" height="188" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
-  <text x="78" y="226" class="section">Top Languages</text>
+  <rect x="58" y="192" width="392" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
+  <text x="78" y="226" class="section">Top Languages by Commit</text>
   ${languageBars}
 
-  <rect x="470" y="192" width="374" height="188" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
+  <rect x="470" y="192" width="374" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
   <text x="490" y="226" class="section">Recent Rhythm</text>
-  <text x="490" y="254" class="body">Recent public activity sample: ${pulse.eventSampleSize} events across ${pulse.activeDays} active day${pulse.activeDays === 1 ? "" : "s"}.</text>
-  <text x="490" y="280" class="body">Most active hour: ${String(pulse.peakHour).padStart(2, "0")}:00 in Vancouver (${pulse.peakHourCount} event${pulse.peakHourCount === 1 ? "" : "s"}).</text>
-  <text x="490" y="308" class="section">Recently Touched Repos</text>
+  <text x="490" y="254" class="body">Recent public activity sample:</text>
+  <text x="490" y="276" class="body">${pulse.eventSampleSize} events across ${pulse.activeDays} active day${pulse.activeDays === 1 ? "" : "s"}.</text>
+  <text x="490" y="304" class="body">Most active hour in Vancouver:</text>
+  <text x="490" y="326" class="body">${String(pulse.peakHour).padStart(2, "0")}:00 (${pulse.peakHourCount} event${pulse.peakHourCount === 1 ? "" : "s"}).</text>
+  <text x="490" y="356" class="section">Recently Touched Repos</text>
   ${recentRepos}
 
   <g transform="translate(500 70)">
@@ -315,9 +334,10 @@ async function main() {
     fetchRepositories(),
     fetchPublicEvents(),
   ]);
+  const commitLanguageCounts = await fetchCommitCountsByLanguage(repos);
   const readme = fs.readFileSync(config.readmePath, "utf8");
   const stats = buildStatsSection(profile);
-  const pulse = buildPulseData(profile, repos, events);
+  const pulse = buildPulseData(profile, repos, events, commitLanguageCounts);
   const pulseSvg = generatePulseSvg(pulse);
   const updatedTime = formatUpdatedTime();
   const nextReadme = updateReadme(readme, stats, updatedTime);

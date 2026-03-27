@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="460" viewBox="0 0 900 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="900" height="500" viewBox="0 0 900 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Custom GitHub Pulse card for NekoAkari</title>
   <desc id="desc">A custom summary card showing profile stats, languages, recent repositories, and local activity time.</desc>
   <defs>
@@ -11,7 +11,7 @@
       <stop stop-color="#FFE2EA" />
       <stop offset="1" stop-color="#DFF7F1" />
     </linearGradient>
-    <filter id="shadow" x="0" y="0" width="900" height="460" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="shadow" x="0" y="0" width="900" height="500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#E9D8E0" flood-opacity="0.45" />
     </filter>
   </defs>
@@ -23,14 +23,14 @@
     .metric { font: 700 28px "Avenir Next", "Segoe UI", sans-serif; fill: #2f3142; }
     .metric-label { font: 500 13px "Avenir Next", "Segoe UI", sans-serif; fill: #6e7692; }
     .label { font: 600 16px "Avenir Next", "Segoe UI", sans-serif; fill: #364057; }
-    .body { font: 500 15px "Avenir Next", "Segoe UI", sans-serif; fill: #4f5874; }
+    .body { font: 500 14px "Avenir Next", "Segoe UI", sans-serif; fill: #4f5874; }
     .stat-muted { font: 500 13px "Avenir Next", "Segoe UI", sans-serif; fill: #7e88a6; }
     .small { font: 500 12px "Avenir Next", "Segoe UI", sans-serif; fill: #8b94af; }
   </style>
 
   <g filter="url(#shadow)">
-    <rect x="30" y="24" width="840" height="400" rx="32" fill="url(#bg)" />
-    <rect x="30.75" y="24.75" width="838.5" height="398.5" rx="31.25" stroke="#F2DDE4" stroke-opacity="0.9" stroke-width="1.5" />
+    <rect x="30" y="24" width="840" height="440" rx="32" fill="url(#bg)" />
+    <rect x="30.75" y="24.75" width="838.5" height="438.5" rx="31.25" stroke="#F2DDE4" stroke-opacity="0.9" stroke-width="1.5" />
   </g>
 
   <rect x="56" y="52" width="788" height="112" rx="24" fill="url(#header)" />
@@ -39,44 +39,46 @@
 
   <text x="162" y="95" class="title">Ella Long</text>
   <text x="162" y="122" class="subtitle">Quietly building cozy things on the web.</text>
-  <text x="162" y="146" class="small">Joined GitHub in 2019 • Local time in Vancouver: 10:01 PM</text>
+  <text x="162" y="146" class="small">Joined GitHub in 2019 • Local time in Vancouver: 10:06 PM</text>
 
-  <rect x="58" y="192" width="392" height="188" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
-  <text x="78" y="226" class="section">Top Languages</text>
+  <rect x="58" y="192" width="392" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
+  <text x="78" y="226" class="section">Top Languages by Commit</text>
   
-        <text x="78" y="246" class="label">JavaScript</text>
-        <rect x="210" y="231" width="220" height="18" rx="9" fill="#f7efe6" />
-        <rect x="210" y="231" width="210" height="18" rx="9" fill="#f4a6b8" />
-        <text x="442" y="246" class="stat-muted" text-anchor="end">1 repo</text>
+        <text x="78" y="250" class="label">Swift</text>
+        <rect x="220" y="234" width="206" height="18" rx="9" fill="#f7efe6" />
+        <rect x="220" y="234" width="196" height="18" rx="9" fill="#f4a6b8" />
+        <text x="438" y="250" class="stat-muted" text-anchor="end">25 commits</text>
       
-        <text x="78" y="286" class="label">Java</text>
-        <rect x="210" y="271" width="220" height="18" rx="9" fill="#f7efe6" />
-        <rect x="210" y="271" width="210" height="18" rx="9" fill="#9fd3c7" />
-        <text x="442" y="286" class="stat-muted" text-anchor="end">1 repo</text>
+        <text x="78" y="292" class="label">Java</text>
+        <rect x="220" y="276" width="206" height="18" rx="9" fill="#f7efe6" />
+        <rect x="220" y="276" width="157" height="18" rx="9" fill="#9fd3c7" />
+        <text x="438" y="292" class="stat-muted" text-anchor="end">20 commits</text>
       
-        <text x="78" y="326" class="label">Swift</text>
-        <rect x="210" y="311" width="220" height="18" rx="9" fill="#f7efe6" />
-        <rect x="210" y="311" width="210" height="18" rx="9" fill="#f6c6a8" />
-        <text x="442" y="326" class="stat-muted" text-anchor="end">1 repo</text>
+        <text x="78" y="334" class="label">JavaScript</text>
+        <rect x="220" y="318" width="206" height="18" rx="9" fill="#f7efe6" />
+        <rect x="220" y="318" width="94" height="18" rx="9" fill="#f6c6a8" />
+        <text x="438" y="334" class="stat-muted" text-anchor="end">12 commits</text>
       
 
-  <rect x="470" y="192" width="374" height="188" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
+  <rect x="470" y="192" width="374" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
   <text x="490" y="226" class="section">Recent Rhythm</text>
-  <text x="490" y="254" class="body">Recent public activity sample: 38 events across 11 active days.</text>
-  <text x="490" y="280" class="body">Most active hour: 20:00 in Vancouver (9 events).</text>
-  <text x="490" y="308" class="section">Recently Touched Repos</text>
+  <text x="490" y="254" class="body">Recent public activity sample:</text>
+  <text x="490" y="276" class="body">39 events across 11 active days.</text>
+  <text x="490" y="304" class="body">Most active hour in Vancouver:</text>
+  <text x="490" y="326" class="body">20:00 (9 events).</text>
+  <text x="490" y="356" class="section">Recently Touched Repos</text>
   
-        <circle cx="525" cy="321" r="4" fill="#9fd3c7" />
-        <text x="540" y="326" class="label">NekoAkari</text>
-        <text x="828" y="326" class="stat-muted" text-anchor="end">updated Mar 26</text>
+        <circle cx="525" cy="331" r="4" fill="#9fd3c7" />
+        <text x="540" y="336" class="label">NekoAkari</text>
+        <text x="828" y="336" class="stat-muted" text-anchor="end">updated Mar 26</text>
       
-        <circle cx="525" cy="349" r="4" fill="#9fd3c7" />
-        <text x="540" y="354" class="label">cube-solver-Java</text>
-        <text x="828" y="354" class="stat-muted" text-anchor="end">updated Mar 26</text>
+        <circle cx="525" cy="359" r="4" fill="#9fd3c7" />
+        <text x="540" y="364" class="label">cube-solver-Java</text>
+        <text x="828" y="364" class="stat-muted" text-anchor="end">updated Mar 26</text>
       
-        <circle cx="525" cy="377" r="4" fill="#9fd3c7" />
-        <text x="540" y="382" class="label">AutoLedger</text>
-        <text x="828" y="382" class="stat-muted" text-anchor="end">updated Mar 21</text>
+        <circle cx="525" cy="387" r="4" fill="#9fd3c7" />
+        <text x="540" y="392" class="label">AutoLedger</text>
+        <text x="828" y="392" class="stat-muted" text-anchor="end">updated Mar 21</text>
       
 
   <g transform="translate(500 70)">
