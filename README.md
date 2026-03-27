@@ -61,9 +61,12 @@ Last updated: 2026-03-26, 20:59:31 (Vancouver time)
 ## GitHub Pulse
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=NekoAkari&show_icons=true&theme=rose_pine&hide_border=true&rank_icon=github" alt="GitHub stats for NekoAkari" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=NekoAkari&layout=compact&theme=rose_pine&hide_border=true" alt="Top languages for NekoAkari" />
+  <sub>a tiny snapshot of what I'm usually building around here</sub>
 </div>
+
+[![](https://raw.githubusercontent.com/NekoAkari/NekoAkari/main/profile-summary-card-output/solarized/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://raw.githubusercontent.com/NekoAkari/NekoAkari/main/profile-summary-card-output/solarized/1-repos-per-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://raw.githubusercontent.com/NekoAkari/NekoAkari/main/profile-summary-card-output/solarized/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 
 ---
 
