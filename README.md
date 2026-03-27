@@ -6,10 +6,22 @@ Welcome to my profile.
 ## 📊 My Dashboard
 
 <!-- STATS:START -->
-Loading stats...
+
+- 👤 User: NekoAkari
+- 📦 Public Repos: 3
+- 👥 Followers: 0
+- 🔁 Following: 0
+
 <!-- STATS:END -->
 
 ---
+
+
+<!-- LAST_UPDATED:START -->
+Last updated: 2026-03-26, 20:45:22 (Vancouver time)
+<!-- LAST_UPDATED:END -->
+
+
 <!--
 **NekoAkari/NekoAkari** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
