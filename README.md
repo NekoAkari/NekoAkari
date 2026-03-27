@@ -1,5 +1,15 @@
-## Hi there 👋
+# Hi 👋
+Welcome to my profile.
 
+---
+
+## 📊 My Dashboard
+
+<!-- STATS:START -->
+Loading stats...
+<!-- STATS:END -->
+
+---
 <!--
 **NekoAkari/NekoAkari** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
