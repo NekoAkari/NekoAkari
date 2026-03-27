@@ -1,0 +1,11 @@
+{
+  "name": "profile-readme",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "update": "node scripts/updateProfile.js"
+  }
+}
