@@ -37,7 +37,7 @@
 
 <div align="center">
   <!-- LAST_UPDATED:START -->
-Last updated: 2026-03-27, 24:16:19 (Vancouver time)
+Last updated: 2026-04-06, 11:38:50 (Vancouver time)
 <!-- LAST_UPDATED:END -->
 </div>
 
@@ -68,16 +68,6 @@ Last updated: 2026-03-27, 24:16:19 (Vancouver time)
 </p>
 
 ---
-
-## Little Notes
-
-```txt
-today's vibe:
-  soft colors
-  cute details
-  quiet focus
-  steady progress
-```
 
 <div align="center">
   <sub>｡･:*:･ﾟ★,｡･:*:･ﾟ☆  thanks for stopping by  ☆･ﾟ:*:･｡,★･ﾟ:*:･｡</sub>
