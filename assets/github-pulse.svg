@@ -36,7 +36,7 @@
   <rect x="54" y="56" width="852" height="126" rx="28" fill="url(#header)" />
   <text x="84" y="110" class="title">NekoAkari</text>
   <text x="84" y="139" class="subtitle">Student @ SFU · Computing Science</text>
-  <text x="84" y="165" class="small">Joined GitHub in 2019 • Last commit: Jun 5, 2026</text>
+  <text x="84" y="165" class="small">Joined GitHub in 2019 • Last commit: Jun 26, 2026</text>
 
   <rect x="54" y="210" width="430" height="310" rx="26" fill="#FFFFFF" fill-opacity="0.88" stroke="#F4E5EA" />
   <text x="78" y="246" class="section">Top Languages by Commit</text>
@@ -46,15 +46,15 @@
         <rect x="224" y="270" width="140" height="18" rx="9" fill="#f4a6b8" />
         <text x="460" y="286" class="stat-muted" text-anchor="end">36 commits</text>
       
-        <text x="78" y="336" class="label">Java</text>
+        <text x="78" y="336" class="label">C</text>
         <rect x="224" y="320" width="146" height="18" rx="9" fill="#f7efe6" />
-        <rect x="224" y="320" width="82" height="18" rx="9" fill="#9fd3c7" />
-        <text x="460" y="336" class="stat-muted" text-anchor="end">21 commits</text>
+        <rect x="224" y="320" width="89" height="18" rx="9" fill="#9fd3c7" />
+        <text x="460" y="336" class="stat-muted" text-anchor="end">23 commits</text>
       
-        <text x="78" y="386" class="label">C</text>
+        <text x="78" y="386" class="label">Java</text>
         <rect x="224" y="370" width="146" height="18" rx="9" fill="#f7efe6" />
-        <rect x="224" y="370" width="58" height="18" rx="9" fill="#f6c6a8" />
-        <text x="460" y="386" class="stat-muted" text-anchor="end">15 commits</text>
+        <rect x="224" y="370" width="82" height="18" rx="9" fill="#f6c6a8" />
+        <text x="460" y="386" class="stat-muted" text-anchor="end">21 commits</text>
       
         <text x="78" y="436" class="label">JavaScript</text>
         <rect x="224" y="420" width="146" height="18" rx="9" fill="#f7efe6" />
@@ -65,22 +65,22 @@
   <rect x="502" y="210" width="388" height="310" rx="26" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5EFF0" />
   <text x="528" y="246" class="section">Recent Rhythm</text>
   <text x="528" y="272" class="body">Recent public activity sample</text>
-  <text x="528" y="294" class="body">20 events across 7 active days</text>
+  <text x="528" y="294" class="body">19 events across 9 active days</text>
   <text x="528" y="324" class="body">Most active hour in Vancouver</text>
-  <text x="528" y="346" class="body">17:00 with 6 events</text>
+  <text x="528" y="346" class="body">16:00 with 4 events</text>
   <text x="528" y="388" class="section">Recently Touched Repos</text>
   
         <circle cx="548" cy="414" r="4" fill="#9fd3c7" />
         <text x="564" y="420" class="label">CMPT295-Coursework</text>
-        <text x="866" y="420" class="stat-muted" text-anchor="end">updated Jun 5</text>
+        <text x="866" y="420" class="stat-muted" text-anchor="end">updated Jun 26</text>
       
         <circle cx="548" cy="444" r="4" fill="#9fd3c7" />
         <text x="564" y="450" class="label">CMPT201-Coursework</text>
-        <text x="866" y="450" class="stat-muted" text-anchor="end">updated Jun 2</text>
+        <text x="866" y="450" class="stat-muted" text-anchor="end">updated Jun 21</text>
       
         <circle cx="548" cy="474" r="4" fill="#9fd3c7" />
         <text x="564" y="480" class="label">NekoAkari</text>
-        <text x="866" y="480" class="stat-muted" text-anchor="end">updated May 27</text>
+        <text x="866" y="480" class="stat-muted" text-anchor="end">updated Jun 10</text>
       
 
   <g transform="translate(500 78)">
@@ -90,7 +90,7 @@
   </g>
   <g transform="translate(598 78)">
     <rect x="0" y="0" width="84" height="86" rx="22" fill="#FFFFFF" fill-opacity="0.82" />
-    <text x="42" y="38" text-anchor="middle" class="metric">86</text>
+    <text x="42" y="38" text-anchor="middle" class="metric">94</text>
     <text x="42" y="64" text-anchor="middle" class="metric-label">commits</text>
   </g>
   <g transform="translate(696 78)">
